@@ -9,14 +9,14 @@ int main()
 
     auto test_time{std::chrono::system_clock::now()};
 
-    test_time += std::chrono::days(1); // tomorrow
+    test_time += std::chrono::hours(24);
 
     Task task1{"Buy a milk", Task::PRIORITY::NORMAL, test_time};
 
     todos.add_task(task1);
     assert(1 == todos.get_tasks_count());
 
-    test_time -= std::chrono::days(2); // yesterday
+    test_time -= std::chrono::hours(48); // yesterday
 
     todos.add_task(Task{"Buy a bread", Task::PRIORITY::HIGH, test_time});
     assert(2 == todos.get_tasks_count());
